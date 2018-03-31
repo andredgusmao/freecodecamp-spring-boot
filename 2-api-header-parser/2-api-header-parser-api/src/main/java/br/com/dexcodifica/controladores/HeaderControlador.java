@@ -26,7 +26,6 @@ public class HeaderControlador {
 	public ResponseEntity<String> endpoint(@RequestHeader("User-Agent") String userAgent,
             @RequestHeader("Accept-Language") String acceptLanguage, @RequestHeader HttpHeaders headers) {
 		log.info("Valores recebidos no header: {}; {}", userAgent, acceptLanguage);
-		log.info("IP do cliente: {}", request.getLocalAddr());
 		log.info("IP do cliente: {}", request.getRemoteAddr());
 		
 		return new ResponseEntity<>(HttpStatus.OK);
