@@ -4,17 +4,24 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.dexcodifica.modelo.eventos.EnqueteEventos;
+
 
 @Entity
+@EntityListeners(value = { EnqueteEventos.class })
 @Table(name = "enquete")
 public class Enquete implements Serializable {
 
@@ -26,12 +33,16 @@ public class Enquete implements Serializable {
 
 	private String idPublico; 
 	
+	@NotEmpty
 	private String nome;
 	
+	@NotEmpty
 	private String opcao1;
 
+	@NotEmpty
 	private String opcao2;
 	
+	@NotNull
 	@ManyToOne
 	@JsonIgnore
 	private Usuario usuario;
@@ -127,4 +138,8 @@ public class Enquete implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return String.format("[Nome: %s; Id: %s; Opcao1: %s; Opcao2: %s; usuario: %s]", nome, idPublico, opcao1, opcao2, usuario);
+	}
 }

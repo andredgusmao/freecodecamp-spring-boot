@@ -115,4 +115,8 @@ public class Usuario implements Serializable {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return String.format("[Nome: %s; Email: %s]", this.nome, this.email);
+	}
 }

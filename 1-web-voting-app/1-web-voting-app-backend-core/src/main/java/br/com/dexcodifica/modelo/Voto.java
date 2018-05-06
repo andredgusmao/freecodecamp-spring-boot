@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "voto")
@@ -18,11 +21,14 @@ public class Voto implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty
 	private String opcao;
-	
+
+	@NotNull
 	@ManyToOne
 	private Usuario usuario;
 	
+	@NotNull
 	@ManyToOne
 	private Enquete enquete;
 	
