@@ -21,7 +21,7 @@ import br.com.dexcodifica.modelo.Voto;
 @Profile("test")
 @DataJpaTest(showSql = true)
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-@SpringBootTest(classes = { ServiceConfiguration.class })
+@SpringBootTest(classes = { ConfiguracaoServicos.class })
 public abstract class AbstractServiceTest {
 	
 	@Autowired

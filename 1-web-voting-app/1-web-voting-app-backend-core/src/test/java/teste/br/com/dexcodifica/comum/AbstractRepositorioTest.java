@@ -6,9 +6,8 @@ import org.springframework.boot.autoconfigure.jdbc.EmbeddedDatabaseConnection;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import br.com.dexcodifica.ConfiguracaoTeste;
 import br.com.dexcodifica.modelo.Enquete;
 import br.com.dexcodifica.modelo.Usuario;
 import teste.br.com.dexcodifica.util.Data;
@@ -16,7 +15,7 @@ import teste.br.com.dexcodifica.util.Data;
 
 @DataJpaTest(showSql = true)
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-@ContextConfiguration(classes = ConfiguracaoTeste.class)
+@SpringBootTest(classes = {ConfiguracaoRepositorio.class})
 public abstract class AbstractRepositorioTest {
 	
 	@Autowired

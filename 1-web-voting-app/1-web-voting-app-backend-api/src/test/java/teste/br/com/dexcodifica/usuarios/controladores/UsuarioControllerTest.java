@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -21,8 +20,8 @@ import br.com.dexcodifica.usuario.Usuarios;
 import teste.br.com.dexcodifica.comum.AbstractControlerTest;
 import teste.br.com.dexcodifica.comum.ConversorJson;
 
-//@RunWith(SpringRunner.class)
-//@WebMvcTest(value = UsuarioController.class)
+@RunWith(SpringRunner.class)
+@WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest extends AbstractControlerTest {
 	
 	@MockBean

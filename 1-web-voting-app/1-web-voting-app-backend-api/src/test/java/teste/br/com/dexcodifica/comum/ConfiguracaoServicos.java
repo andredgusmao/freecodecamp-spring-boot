@@ -11,7 +11,7 @@ import br.com.dexcodifica.voto.Votos;
 
 @Configuration
 @ComponentScan("br.com.dexcodifica")
-public class ServiceConfiguration {
+public class ConfiguracaoServicos {
 
 	@Bean
 	public Votos votos() {

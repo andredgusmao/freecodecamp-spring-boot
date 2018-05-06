@@ -6,10 +6,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-import br.com.dexcodifica.Aplicacao;
-
 @Profile("test")
-@ContextConfiguration(classes = {Aplicacao.class, ServiceConfiguration.class})
+@ContextConfiguration(classes = { ConfiguracaoControler.class })
 public abstract class AbstractControlerTest {
 
 	@Autowired

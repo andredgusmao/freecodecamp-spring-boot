@@ -20,8 +20,8 @@ import br.com.dexcodifica.usuario.Usuarios;
 import teste.br.com.dexcodifica.comum.AbstractControlerTest;
 import teste.br.com.dexcodifica.comum.ConversorJson;
 
-//@RunWith(SpringRunner.class)
-//@WebMvcTest(value = EnqueteController.class)
+@RunWith(SpringRunner.class)
+@WebMvcTest(EnqueteController.class)
 public class EnquetesControllerTest extends AbstractControlerTest {
 	
 	@MockBean

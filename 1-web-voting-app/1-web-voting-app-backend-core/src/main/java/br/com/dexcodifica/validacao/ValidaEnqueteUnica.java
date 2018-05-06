@@ -14,10 +14,6 @@ public class ValidaEnqueteUnica implements ConstraintValidator<EnqueteUnica, Enq
 
 	@Autowired
 	private EnqueteRepositorio repositorio;
-
-	public ValidaEnqueteUnica(EnqueteRepositorio repositorio) {
-		this.repositorio = repositorio;
-	}
 	
 	@Override
 	public void initialize(EnqueteUnica anotacao) {

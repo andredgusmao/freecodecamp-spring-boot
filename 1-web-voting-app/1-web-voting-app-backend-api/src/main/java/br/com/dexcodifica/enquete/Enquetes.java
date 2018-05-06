@@ -7,6 +7,7 @@ import javax.validation.ConstraintViolationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -72,11 +73,11 @@ public class Enquetes {
 	}
 
 	private void valida(Enquete enquete) throws ValidacaoException {
-		Example<Enquete> example = Example.of(enquete);
+		Example<Enquete> example = Example.of(enquete, ExampleMatcher.matching().withIgnoreNullValues());
 		if(repositorio.exists(example)) {
 			ValidacaoException exception = new ValidacaoException("Erro de validacao");
 			exception.addErro(new ErroValidacao("A Enquete ja existe", Enquete.class.getSimpleName(), ""));
-			throw new ValidacaoException();
+			throw exception;
 		}
 	}
 }

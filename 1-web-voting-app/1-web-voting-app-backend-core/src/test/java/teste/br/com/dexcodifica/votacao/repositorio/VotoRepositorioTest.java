@@ -19,7 +19,7 @@ import teste.br.com.dexcodifica.comum.AbstractRepositorioTest;
 public class VotoRepositorioTest extends AbstractRepositorioTest {
 
 	@Autowired
-	VotoRepositorio repository;	
+	VotoRepositorio repository;
 	
 	@Test
 	public void aoInserirDeveRetornarOK() {
