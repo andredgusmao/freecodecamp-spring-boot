@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import br.com.dexcodifica.base.ErroValidacao;
 import br.com.dexcodifica.base.ValidacaoException;
 import br.com.dexcodifica.modelo.Enquete;
+import br.com.dexcodifica.modelo.Usuario;
 import br.com.dexcodifica.repositorio.EnqueteRepositorio;
 
 @Service
@@ -45,6 +46,22 @@ public class Enquetes {
 
 	public Page<Enquete> todos(Pageable enquete) {
 		return repositorio.findAll(enquete);
+	}
+	
+	public List<Enquete> porIdUsuario(Long id) {
+		return repositorio.findByIdUsuario(id);
+	}
+	
+	public List<Enquete> porEmailUsuario(String email) {
+		return repositorio.findByEmailUsuario(email);
+	}
+
+	public List<Enquete> porIdUsuario(Usuario usuario) {
+		return repositorio.findByIdUsuario(usuario.getId());
+	}
+	
+	public List<Enquete> porEmailUsuario(Usuario usuario) {
+		return repositorio.findByEmailUsuario(usuario.getEmail());
 	}
 
 	public <S extends Enquete> S umCom(Example<S> enquete) {
